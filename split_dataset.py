@@ -4,7 +4,12 @@ import shutil
 
 
 def split_dataset(abs_dirname, N):
-    """Move files into subdirectories. N files per subdirectory"""
+    """Move files into subdirectories. N files per subdirectory
+    
+    Arguments:
+        abs_dirname {[type]} -- [description]
+        N {[type]} -- [description]
+    """
     files = [os.path.join(abs_dirname, f) for f in os.listdir(abs_dirname)]
     i = 0
     for f in files:

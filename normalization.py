@@ -4,6 +4,12 @@ import numpy as np
 
 
 def normalize_dataset(imDir, normDir):
+    """Performs normalized (0 - 1.0) contrast stretching on a given dataset
+
+    Arguments:
+        imDir {String} -- Path to the directory containing the image dataset
+        normDir {String} -- Path of directory to save the filtered dataset
+    """
     img_list = os.listdir(imDir)
     num_imgs = len(img_list)
     i = 1

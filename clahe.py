@@ -3,11 +3,15 @@ import cv2
 
 
 def clahe_dataset(imDir, claheDir, clip_limit=2.0, grid_size=8):
-    """[summary]
-    
+    """Performs contrast limited adaptive histogram equalization on a given dataset
+
     Arguments:
-        imDir {[type]} -- [description]
-        eqDir {[type]} -- [description]
+        imDir {String} -- Path to the directory containing the image dataset
+        claheDir {String} -- Path of directory to save the filtered dataset
+
+    Keyword Arguments:
+        clip_limit {float} -- Contrast limit for each grid (default: {2.0})
+        grid_size {int} -- size of the grid used for HE   (default: {8})
     """
     img_list = os.listdir(imDir)
     num_imgs = len(img_list)

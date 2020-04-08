@@ -5,11 +5,10 @@ from get_dataset import imDir
 
 
 def get_mean(imDir):
-    """[summary]
-    
+    """Writes the mean intensity value of each image in a given dataset to mean.txt
+
     Arguments:
-        imDir {[type]} -- [description]
-        eqDir {[type]} -- [description]
+        imDir {String} -- Path to the directory containing the image dataset
     """
     img_list = os.listdir(imDir)
     mean_list = [('Image File', 'Mean Intensity')]

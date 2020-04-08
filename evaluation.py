@@ -8,7 +8,11 @@ from get_dataset import annType, annFile, annFile_foot
 
 
 def evaluate_jsons(foot=False):
-
+    """Prints the summary all the json results files for each model specified in config.py 
+    
+    Keyword Arguments:
+        foot {bool} -- Set to True for foot keypoints results (default: {False})
+    """
     # Generate list of tests that were done from config file
     tests = [config['dataType']]
     if config['Equalize']:
@@ -43,8 +47,6 @@ def evaluate_jsons(foot=False):
         cocoEval.accumulate()
         print(f'Results for the {test} test:')
         cocoEval.summarize()
-        cocoEval.analyse()
-
 
 
 if __name__ == "__main__":

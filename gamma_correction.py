@@ -4,11 +4,15 @@ import numpy as np
 
 
 def gamma_correct_dataset(imDir, gammaDir, gamma, thresh=255):
-    """[summary]
-    
+    """Performs gamma correction on a given dataset
+
     Arguments:
-        imDir {[type]} -- [description]
-        eqDir {[type]} -- [description]
+        imDir {String} -- Path to the directory containing the image dataset
+        gammaDir {String} -- Path of directory to save filtered dataset
+        gamma {float} -- gamma value to use in the correction
+
+    Keyword Arguments:
+        thresh {int} -- Only processes images with mean intensities below thresh (default: {255})
     """
     # build a lookup table mapping the pixel values [0, 255] to
     # their adjusted gamma values

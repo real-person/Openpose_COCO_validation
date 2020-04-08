@@ -3,12 +3,18 @@ import cv2
 import numpy as np
 
 
-def selective_clahe_dataset(imDir, claheDir, clip_limit=2.0, grid_size=8):
-    """[summary]
-    
+def selective_clahe_dataset(imDir, claheDir, clip_limit=2.0, grid_size=8,
+                            thresh=255):
+    """Performs contrast limited adaptive histogram equalization on a given dataset
+
     Arguments:
-        imDir {[type]} -- [description]
-        eqDir {[type]} -- [description]
+        imDir {String} -- Path to the directory containing the image dataset
+        claheDir {String} -- Path of directory to save the filtered dataset
+
+    Keyword Arguments:
+        clip_limit {float} -- Contrast limit for each grid (default: {2.0})
+        grid_size {int} -- size of the grid used for HE   (default: {8})
+        thresh {int} -- Only processes images with mean intensities below thresh (default: {255})
     """
     clahe = cv2.createCLAHE(clipLimit=clip_limit,
                             tileGridSize=(grid_size, grid_size))
@@ -38,5 +44,3 @@ def selective_clahe_dataset(imDir, claheDir, clip_limit=2.0, grid_size=8):
         cv2.imwrite(img_clahe_path, img_clahe)
         i += 1
     print(f'{n} images enhanced!')
-
-

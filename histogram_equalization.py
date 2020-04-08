@@ -3,11 +3,12 @@ import cv2
 
 
 def equalize_dataset(imDir, eqDir):
-    """[summary]
-    
+    """Performs global histogram equalization on a given dataset
+
     Arguments:
-        imDir {[type]} -- [description]
-        eqDir {[type]} -- [description]
+        imDir {String} -- Path to the directory containing the image dataset
+        claheDir {String} -- Path of directory to save filtered dataset
+
     """
     img_list = os.listdir(imDir)
     num_imgs = len(img_list)

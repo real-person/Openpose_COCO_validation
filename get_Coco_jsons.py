@@ -6,11 +6,8 @@ from get_dataset import dataDir
 
 
 def get_coco_jsons():
-    '''image_directories = [imDir]
-    if config['Equalize']:
-        image_directories.append(eqDir)
-    if config['Normalize']:
-        image_directories.append(normDir)'''
+    """Get json results files for each model specified in config.py
+    """
     for test in config['Folders to test']:
         image_folder = f'{dataDir}/{test}'
         shellscript = Popen(["git-bash.exe", "get_coco_jsons.sh", image_folder,
