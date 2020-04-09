@@ -141,9 +141,6 @@ output/
 # Random one off tests
 test.py
 
-# Config file
-config.py
-
 # vscode settings
 .vscode/
 
