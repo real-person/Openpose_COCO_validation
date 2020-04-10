@@ -28,7 +28,18 @@ def get_coco_jsons():
     if not os.path.exists(json_folder_foot):
         os.makedirs(json_folder_foot)
     # Path to Openpose application
-    openpose_app = f'{config["openpose_folder"]}/bin/OpenPoseDemo.exe'
+    if config['Windows Portable Demo']:
+        openpose_app = os.pth.join(
+            config["openpose_folder"],
+            'bin/OpenPoseDemo.exe')
+    elif config['System'] == 'Windows':
+        openpose_app = os.pth.join(
+            config["openpose_folder"],
+            'build/x64/Release/OpenPoseDemo.exe')
+    elif config['System'] == 'Linux' or config['System'] == 'Mac':
+        openpose_app = os.pth.join(
+            config["openpose_folder"],
+            'build/examples/openpose/openpose.bin')
     # Model name to be passed to the openpose application
     openpose_model = os.path.basename(model_folder).upper()
     # Path to users desktop. Used for storing temporary json files
@@ -47,11 +58,19 @@ def get_coco_jsons():
         for test in config['Folders to test']:
             image_dir = f'{config["dataDir"]}/{test}'
             # Set paths for json output files.
-            # Diferentiate between trials using different models, scale numbers, and datasets
-            final_json_file = f'{json_folder}/{model_name}_{scale_number}_{test}.json'
-            final_json_file_foot = f'{json_folder_foot}/{model_name}_{scale_number}_{test}.json'
-            temporary_json_file = f'{desktop}/temporaryJson_{experiment}_{model_name}_{scale_number}.json'
-            temporary_json_file_foot = f'{desktop}/temporaryJson_{experiment}_{model_name}_{scale_number}_foot.json'
+            # Name json results according to model, scale number, and dataset
+            final_json_file = os.pth.join(
+                json_folder,
+                f'{model_name}_{scale_number}_{test}.json')
+            final_json_file_foot = os.pth.join(
+                json_folder_foot,
+                f'{model_name}_{scale_number}_{test}.json')
+            temporary_json_file = os.pth.join(
+                desktop,
+                f'temporaryJson_{model_name}_{scale_number}_{test}.json')
+            temporary_json_file_foot = os.pth.join(
+                desktop,
+                f'temporaryJson_{model_name}_{scale_number}_{test}_foot.json')
             if os.path.exists(final_json_file):
                 print(f"{scale_number}-scale body/foot model already exists.")
             else:

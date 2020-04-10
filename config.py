@@ -1,8 +1,10 @@
 # Ensure all paths include forward slashs only (No backslash)
 # Some parameters must be set to either "None" or iterables (see descriptions)
 config = {
-    # System type (Linux or Windows)
+    # System type (Windows, Linux or Mac)
     'System': 'Windows',
+    # SPecifiy whether the windows portable demo is being used
+    'Windows Portable Demo': True,
     # Type of annotation to use to evaluate against dataset
     'annType': 'keypoints',
     # Directory where the user wishes to store COCO dtatasets
