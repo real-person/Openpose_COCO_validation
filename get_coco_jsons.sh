@@ -86,8 +86,8 @@ for modelPath in `ls -v ${SHARED_FOLDER}*.caffemodel`; do
 
     finalJsonFile=${JSON_FOLDER}${modelName}_${SCALE_NUMBER}_${ImType}.json
     finalJsonFile_foot=${JSON_FOLDER_foot}${modelName}_${SCALE_NUMBER}_${ImType}.json
-    temporaryJsonFile=C:/Users/marsh/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_${SCALE_NUMBER}.json
-    temporaryJsonFileFoot=C:/Users/marsh/Desktop/temporaryJson_${EXPERIMENT}_${modelName}_${SCALE_NUMBER}_foot.json
+    temporaryJsonFile=${PWD}/temporaryJson_${EXPERIMENT}_${modelName}_${SCALE_NUMBER}.json
+    temporaryJsonFileFoot=${PWD}/temporaryJson_${EXPERIMENT}_${modelName}_${SCALE_NUMBER}_foot.json
 
     OP_COMAND="bin/OpenPoseDemo.exe --model_pose ${OPENPOSE_MODEL} --prototxt_path ${prototxtPath} "
     OP_COMAND+="--caffemodel_path ${modelPath} --render_pose 0 --display 0 --cli_verbose 0.2 "
