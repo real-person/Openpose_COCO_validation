@@ -36,7 +36,7 @@ echo "Paths"
 JSON_FOLDER=${SHARED_FOLDER}/${SCALE_NUMBER}scale/
 # JSON_FOLDER_4=${SHARED_FOLDER}4scales/
 # Foot
-JSON_FOLDER_foot=${SHARED_FOLDER}foot_/${SCALE_NUMBER}scale/
+JSON_FOLDER_foot=${SHARED_FOLDER}/foot_${SCALE_NUMBER}scale/
 # JSON_FOLDER_4_foot=${SHARED_FOLDER}foot_4scales/
 # Face
 # JSON_FOLDER_1_frgc=${SHARED_FOLDER}frgc_1scale/
@@ -73,7 +73,6 @@ mkdir $JSON_FOLDER_foot
 
 
 echo "Running OpenPose for each model"
-MODEL_FOLDER=$(dirname $(dirname ${SHARED_FOLDER}))/
 pwd
 cd $OPENPOSE_FOLDER
 echo $PWD
