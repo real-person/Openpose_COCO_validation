@@ -33,10 +33,10 @@ NET_RESOLUTION=$6
 echo "Paths"
 
 # Body
-JSON_FOLDER=${SHARED_FOLDER}${SCALE_NUMBER}scale/
+JSON_FOLDER=${SHARED_FOLDER}/${SCALE_NUMBER}scale/
 # JSON_FOLDER_4=${SHARED_FOLDER}4scales/
 # Foot
-JSON_FOLDER_foot=${SHARED_FOLDER}foot_${SCALE_NUMBER}scale/
+JSON_FOLDER_foot=${SHARED_FOLDER}foot_/${SCALE_NUMBER}scale/
 # JSON_FOLDER_4_foot=${SHARED_FOLDER}foot_4scales/
 # Face
 # JSON_FOLDER_1_frgc=${SHARED_FOLDER}frgc_1scale/
@@ -79,7 +79,7 @@ cd $OPENPOSE_FOLDER
 echo $PWD
 
 # Sorted in natural order (NAT sort)
-for modelPath in `ls -v ${SHARED_FOLDER}*.caffemodel`; do
+for modelPath in `ls -v ${SHARED_FOLDER}/*.caffemodel`; do
     prototxtPath=$(dirname ${modelPath})/pose_deploy.prototxt
     modelName=$(basename ${modelPath})
     echo "Processing $modelName in $EXPERIMENT"
@@ -92,8 +92,9 @@ for modelPath in `ls -v ${SHARED_FOLDER}*.caffemodel`; do
     OP_COMAND="bin/OpenPoseDemo.exe --model_pose ${OPENPOSE_MODEL} --prototxt_path ${prototxtPath} "
     OP_COMAND+="--caffemodel_path ${modelPath} --render_pose 0 --display 0 --cli_verbose 0.2 "
     OP_COMAND+="--write_coco_json ${temporaryJsonFile} --num_gpu -1 --image_dir ${IMAGE_DIR} "
-    OP_COMAND+="--write_coco_json_variants 3 --model_folder "" --net_resolution ${NET_RESOLUTION} "
+    OP_COMAND+="--write_coco_json_variants 3 --net_resolution ${NET_RESOLUTION} "
     OP_COMAND+="--scale_number ${SCALE_NUMBER} --scale_gap ${SCALE_GAP}"
+    echo $OP_COMAND
 
     # Body/foot 1 scale
     echo "Processing bodies/feet..."
@@ -102,7 +103,7 @@ for modelPath in `ls -v ${SHARED_FOLDER}*.caffemodel`; do
         echo "${SCALE_NUMBER}-scale body/foot model already exists."
     else
         # Run Openpose for body/foot processing
-        $OP_COMAND
+        $OP_COMAND --model_folder ""
         echo "Moving Temp JSON file... "
         # Move JSON to NAS after finished
         mv ${temporaryJsonFile} ${finalJsonFile}
