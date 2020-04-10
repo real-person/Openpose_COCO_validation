@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 
-def selective_clahe_dataset(imDir, claheDir, clip_limit=2.0, grid_size=8,
+def clahe_dataset(imDir, claheDir, clip_limit=2.0, grid_size=8,
                             thresh=255):
     """Performs contrast limited adaptive histogram equalization on a given dataset
 

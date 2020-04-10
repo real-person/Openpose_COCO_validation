@@ -9,30 +9,30 @@ from normalization import normalize_dataset
 from clahe import clahe_dataset
 from gamma_correction import gamma_correct_dataset
 
+# Type of annotations required
+annType = config['annType']
+prefix = 'person_keypoints' if annType == 'keypoints' else 'instances'
+
+# Setup data paths
+dataDir = config['dataDir']
+dataType = config['dataType']
+
+annDir = f'{dataDir}/annotations'
+annZipFile = f'{dataDir}/instances_{dataType}.zip'
+annFile = f'{annDir}/{prefix}_{dataType}.json'
+annURL = f'http://images.cocodataset.org/annotations/annotations_train{dataType}.zip'
+
+annZipFile_foot = f'{dataDir}/person_keypoints_val2017_foot_v1.zip'
+annFile_foot = f'{annDir}/person_keypoints_val2017_foot_v1.json'
+annURL_foot = f'http://posefs1.perception.cs.cmu.edu/OpenPose/datasets/foot/person_keypoints_val2017_foot_v1.zip'
+
+imDir = f'{dataDir}/{dataType}'
+imZipFile = f'{dataDir}/images_{dataType}.zip'
+imURL = f'http://images.cocodataset.org/zips/{dataType}.zip'
+
 
 def get_dataset():
-    # Type of annotations required
-    annType = config['annType']
-    prefix = 'person_keypoints' if annType == 'keypoints' else 'instances'
-
-    # Setup data paths
-    dataDir = config['dataDir']
-    dataType = config['dataType']
-
-    annDir = f'{dataDir}/annotations'
-    annZipFile = f'{dataDir}/instances_{dataType}.zip'
-    annFile = f'{annDir}/{prefix}_{dataType}.json'
-    annURL = f'http://images.cocodataset.org/annotations/annotations_train{dataType}.zip'
-
-    annZipFile_foot = f'{dataDir}/person_keypoints_val2017_foot_v1.zip'
-    annFile_foot = f'{annDir}/person_keypoints_val2017_foot_v1.json'
-    annURL_foot = f'http://posefs1.perception.cs.cmu.edu/OpenPose/datasets/foot/person_keypoints_val2017_foot_v1.zip'
-
-    imDir = f'{dataDir}/{dataType}'
-    imZipFile = f'{dataDir}/images_{dataType}.zip'
-    imURL = f'http://images.cocodataset.org/zips/{dataType}.zip'
-    
-    # Create folder for the annotations if it doesnt already exist
+    # folder for the annotations if it doesnt already exist
     if not os.path.exists(annDir):
         os.makedirs(annDir)
 
