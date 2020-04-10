@@ -4,7 +4,7 @@ from pycocotools.cocoeval import COCOeval
 # import numpy as np
 
 from config import config
-from get_dataset import annType, annFile, annFile_foot
+from get_dataset import annFile, annFile_foot
 
 
 def evaluate_jsons(foot=False):
@@ -41,7 +41,7 @@ def evaluate_jsons(foot=False):
         # imgIds = imgIds[0:100]
 
         # running evaluation
-        cocoEval = COCOeval(cocoGt, cocoDt, annType)
+        cocoEval = COCOeval(cocoGt, cocoDt, config['annType'])
         cocoEval.params.imgIds = imgIds
         cocoEval.evaluate()
         cocoEval.accumulate()
