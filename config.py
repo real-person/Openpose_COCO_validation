@@ -3,11 +3,11 @@
 config = {
     # System type (Windows, Linux or Mac)
     'System': 'Windows',
-    # SPecifiy whether the windows portable demo is being used
+    # Specifiy whether the windows portable demo is being used
     'Windows Portable Demo': True,
     # Type of annotation to use to evaluate against dataset
     'annType': 'keypoints',
-    # Directory where the user wishes to store COCO dtatasets
+    # Directory where you want the COCO dtatasets stored
     'dataDir': 'C:/Users/marsh/Pictures/COCO',
     # The type of dataset to downlaod from COCO
     'dataType': 'val2017',
@@ -65,5 +65,13 @@ net_resolutions = {
     '1_25BSuperModel11FullVGG': {1: "-1x480", 4: "1712x960"},
     '100_135AlmostSameBatchAllGPUs': {1: "-1x480", 4: "1712x960"},
     '1_25BBkg': {1: "-1x368", 4: "1312x736"},
-    'body_25b': {1: "-1x368", 4: "1312x736"}
+    'body_25': {1: "-1x368", 4: "1312x736"}
+}
+
+# number of iterations for the standard and experimental body-foot caffemodels
+model_iters = {
+    '1_25BSuperModel11FullVGG': 'XXXXXX',
+    '100_135AlmostSameBatchAllGPUs': 'XXXXXX',
+    '1_25BBkg': 'XXXXXX',
+    'body_25': '584000'
 }
