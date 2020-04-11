@@ -29,15 +29,15 @@ def get_coco_jsons():
         os.makedirs(json_folder_foot)
     # Path to Openpose application
     if config['Windows Portable Demo']:
-        openpose_app = os.pth.join(
+        openpose_app = os.path.join(
             config["openpose_folder"],
             'bin/OpenPoseDemo.exe')
     elif config['System'] == 'Windows':
-        openpose_app = os.pth.join(
+        openpose_app = os.path.join(
             config["openpose_folder"],
             'build/x64/Release/OpenPoseDemo.exe')
     elif config['System'] == 'Linux' or config['System'] == 'Mac':
-        openpose_app = os.pth.join(
+        openpose_app = os.path.join(
             config["openpose_folder"],
             'build/examples/openpose/openpose.bin')
     # Model name to be passed to the openpose application
@@ -59,16 +59,16 @@ def get_coco_jsons():
             image_dir = f'{config["dataDir"]}/{test}'
             # Set paths for json output files.
             # Name json results according to model, scale number, and dataset
-            final_json_file = os.pth.join(
+            final_json_file = os.path.join(
                 json_folder,
                 f'{model_name}_{scale_number}_{test}.json')
-            final_json_file_foot = os.pth.join(
+            final_json_file_foot = os.path.join(
                 json_folder_foot,
                 f'{model_name}_{scale_number}_{test}.json')
-            temporary_json_file = os.pth.join(
+            temporary_json_file = os.path.join(
                 desktop,
                 f'temporaryJson_{model_name}_{scale_number}_{test}.json')
-            temporary_json_file_foot = os.pth.join(
+            temporary_json_file_foot = os.path.join(
                 desktop,
                 f'temporaryJson_{model_name}_{scale_number}_{test}_foot.json')
             if os.path.exists(final_json_file):
