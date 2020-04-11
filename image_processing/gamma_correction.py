@@ -12,7 +12,8 @@ def gamma_correct_dataset(imDir, gammaDir, gamma, thresh=255):
         gamma {float} -- gamma value to use in the correction
 
     Keyword Arguments:
-        thresh {int} -- Only processes images with mean intensities below thresh (default: {255})
+        thresh {int} -- Only processes images with mean intensities below
+                        thresh (default: {255})
     """
     # build a lookup table mapping the pixel values [0, 255] to
     # their adjusted gamma values

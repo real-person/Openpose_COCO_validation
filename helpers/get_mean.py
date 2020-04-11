@@ -1,7 +1,6 @@
 import os
 import cv2
 import numpy as np
-from get_dataset import imDir
 
 
 def get_mean(imDir):
@@ -24,5 +23,3 @@ def get_mean(imDir):
     with open('mean.txt', 'w') as f:
         [f.write(f'{m[0]}\t{m[1]}\n') for m in mean_list]
 
-
-get_mean(imDir)

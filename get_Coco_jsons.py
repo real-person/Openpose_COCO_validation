@@ -4,7 +4,7 @@ from subprocess import Popen
 from time import sleep
 
 from config import config, net_resolutions
-from natural_sort import natural_sort
+from helpers.natural_sort import natural_sort
 
 
 def get_coco_jsons():

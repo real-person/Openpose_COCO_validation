@@ -4,10 +4,10 @@ import os
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("output_filename", 
+    parser.add_argument("output_filename",
                         help="name of the concatinated json file",
                         type=str)
-    parser.add_argument("input_filenames", 
+    parser.add_argument("input_filenames",
                         help="names of the json file to concatinate",
                         type=str)
     args = parser.parse_args()
@@ -35,4 +35,3 @@ def mangle(s):
 
 if __name__ == "__main__":
     main()
-    # cat_json('/c/Users/marsh/Desktop/test.json', '/c/Users/marsh/Desktop/temporaryJson_body_25_pose_iter_584000.caffemodel_1_002.json,/c/Users/marsh/Desktop/temporaryJson_body_25_pose_iter_584000.caffemodel_1_003.json,/c/Users/marsh/Desktop/temporaryJson_body_25_pose_iter_584000.caffemodel_1_004.json,/c/Users/marsh/Desktop/temporaryJson_body_25_pose_iter_584000.caffemodel_1_005.json')

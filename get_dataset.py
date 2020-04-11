@@ -4,10 +4,10 @@ import urllib.request
 import shutil
 
 from config import config
-from histogram_equalization import equalize_dataset
-from normalization import normalize_dataset
-from clahe import clahe_dataset
-from gamma_correction import gamma_correct_dataset
+from image_processing.histogram_equalization import equalize_dataset
+from image_processing.normalization import normalize_dataset
+from image_processing.clahe import clahe_dataset
+from image_processing.gamma_correction import gamma_correct_dataset
 
 # Type of annotations required
 annType = config['annType']
