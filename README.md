@@ -36,4 +36,4 @@ Ensure that you have all of the required prerequisites before proceding with ins
     * "GPU_rest": Duration (in seconds) of sleep time between validation runs. Monitor GPU temp and increase if needed (int)
 
 ## Operation
-Once config.py is complete with the necessary data, simply run "run.py". This downloads, filters, validates with openpose and prints a summary of the results for each run. 
+Once the required feilds in config.py are completed, simply run "run.py". This will download the specified COCO dataset, apply any specified image processing to copies of the dataset, validate the datasets with Openpose, and print a summary of the results.
