@@ -35,3 +35,5 @@ Ensure that you have all of the required prerequisites before proceding with ins
     * "Scale_number": Number of scales to use when running Openpose for validation(1 for less memory consumption, 4 for maximum accuracy). (int)
     * "GPU_rest": Duration (in seconds) of sleep time between validation runs. Monitor GPU temp and increase if needed (int)
 
+## Operation
+Once config.py is complete with the necessary data, simply run "run.py". This downloads, filters, validates with openpose and prints a summary of the results for each run. 
