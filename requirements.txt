@@ -5,7 +5,7 @@ flake8==3.7.9
 kiwisolver==1.1.0
 matplotlib==3.2.1
 mccabe==0.6.1
-numpy==1.17.5
+numpy==1.22.0
 opencv-python==4.2.0.32
 git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
 pycodestyle==2.5.0
